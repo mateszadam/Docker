@@ -24,6 +24,8 @@ jobs:
         run: |
           cd html
 
-          docker build . --file Dockerfile --tag ghcr.io/mateszadam/web_test_for_azure:$IMAGE_TAG
+          docker build . --file Dockerfile --tag ghcr.io/mateszadam/web_test_for_azure:$IMAGE_TAG --tag ghcr.io/mateszadam/web_test_for_azure:latest
           docker login ghcr.io -u mateszadam -p ${{secrets.GHCL_TOKEN}}
           docker push ghcr.io/mateszadam/web_test_for_azure:$IMAGE_TAG
+          docker push ghcr.io/mateszadam/web_test_for_azure:latest
+          
